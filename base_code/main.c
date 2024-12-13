@@ -28,8 +28,8 @@ int main() {
     FILE *exerciseFile = fopen(EXERCISEFILEPATH, "r"); //24.12.13.
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
-    do {
-    	if (//남은 칼로리 = 0 인 경 ){
+    do {//섭취 칼로리 -기초 대사량 - 소모 칼로리 = 0 이거나 4.Exit 옵션 선택 시 종료 
+    	if (health_data.total_calories_intake - BASAL_METABOLIC_RATE - health_data.total_calories_burned == 0){
             printf("You have consumed all your calories for today! \n");
 		} 
 		else{
@@ -47,20 +47,20 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	
+            	inputExercise(&health_data); //exercise 선택  후 calories 소모를 healthdata에 추가 
                 break;
                 
             case 2:
-            	
+            	inputDiet(&health_data); // diest 선택 후 칼로리를 healthdata에 추가 
                 break;
                 
             case 3:
-            	
+            	printHealthData(&health_data); // health_data 출력 
                 break;
                 
             case 4:
             	
-    			pr우intf("Exit the system.\n");
+    			printf("Exit the system.\n");
     			printf("=======================================================================\n");
                 break;
                 
@@ -68,7 +68,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while ( );
+    } while (choice != 4); //4.Exit 옵션 선택 시 종료 
 
     return 0;
 }
