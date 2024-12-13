@@ -24,11 +24,12 @@ int main() {
     HealthData health_data = {0};
     
     // Tocode: to read the list of the exercises and diets
-    
+    FILE *dietFile = fopen(DIETFILEPATH, "r");
+    FILE *exerciseFile = fopen(EXERCISEFILEPATH, "r"); //24.12.13.
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if ( ){
+    	if (//남은 칼로리 = 0 인 경 ){
             printf("You have consumed all your calories for today! \n");
 		} 
 		else{
@@ -59,7 +60,7 @@ int main() {
                 
             case 4:
             	
-    			printf("Exit the system.\n");
+    			pr우intf("Exit the system.\n");
     			printf("=======================================================================\n");
                 break;
                 
