@@ -34,8 +34,8 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while (fscanf(file, "%s %d", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute) !=0) {
-    	
+    while (fscanf(file, "%s %d", exercise_list[exercise_list_size].exercise_name, &exercise_list[exercise_list_size].calories_burned_per_minute) !=EOF) {
+    	//파일에서 운동 종류와 해당 칼로리 데이터를 fscanf를 통해 읽어냄  
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
@@ -60,11 +60,15 @@ void inputExercise(HealthData* health_data) {
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
+    //for 문을 이용해서 
+	//for(i=0; i<exercise_list_size; i++) exercise_list에 있는 exercise_name과 calories_burned_per_minute을  출력함 
+	  
 
 
     // ToCode: to enter the exercise to be chosen with exit option
-    printf("choose an exercise (4: exit):\n");
-    scanf("%d", choice);
+    	printf("choose a exercise (4: exit):\n"); //사용자로부터 choice 입력받기 
+		scanf("%d", &choice);
+   
     
  
     
