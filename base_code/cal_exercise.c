@@ -66,8 +66,11 @@ void inputExercise(HealthData* health_data) {
 
 
     // ToCode: to enter the exercise to be chosen with exit option
-    	printf("choose a exercise (4: exit):\n"); //사용자로부터 choice 입력받기 
+    	printf("choose an exercise (4: exit):\n"); //사용자로부터 choice 입력받기 
 		scanf("%d", &choice);
+		
+		if (choice ==4)
+		return; // exit option 
    
     
  

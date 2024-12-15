@@ -64,14 +64,23 @@ void inputDiet(HealthData* health_data) {
     
 	// ToCode: to enter the diet to be chosen with exit option
 	printf("choose a diet (4: exit):\n"); //사용자로부터 choice 입력받기 
-	scanf("%d", &choice); // 2024.12.14 (main.c도 고치기) 
+	scanf("%d", &choice); // 2024.12.14 (main.c도 고치기)
+	
+	if (choice ==4){
+		return; // exit option
+	}
     
 
     // ToCode: to enter the selected diet in the health data
+    //selected diet를 diet_list 애서 가져와서 health_data 에 복사하기..
+	
 
     
 
     // ToCode: to enter the total calories intake in the health data
+    //selected diet의 칼로리를 total_calories_intake에 더해서 총 칼로리를 구함 
+    //health_data에 있는 toal_calories_intake 를 health_data -> total_calories_intake으로 구조체 포인터로 멤버 접근함 
+    
 
 
 
