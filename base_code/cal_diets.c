@@ -80,7 +80,7 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to enter the total calories intake in the health data
     //selected diet의 칼로리를 total_calories_intake에 더해서 총 칼로리를 구함 
     //health_data에 있는 toal_calories_intake 를 health_data -> total_calories_intake으로 구조체 포인터로 멤버 접근함 
-    
+    health_data -> diet_count++; //healt data에 있는 diet_count 를 증가시킴 
 
 
 
