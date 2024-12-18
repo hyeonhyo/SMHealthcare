@@ -57,6 +57,8 @@ void inputDiet(HealthData* health_data) {
     
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
+    for (i=0; i < diet_list_size; i++)
+	printf("%s %d kcal\n", diet_list[i].food_name, diet_list[i].calories_intake); 
     //for 문을 이용해서 
 	//for(i=0; i<diet_list_size; i++) diet_list에 있는 food_name과 calories_intake를 출력함 
     

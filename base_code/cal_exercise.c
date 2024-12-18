@@ -60,6 +60,8 @@ void inputExercise(HealthData* health_data) {
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
+    for (i=0; i < exercise_list_size; i++)
+    printf("%s %d kcal", exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
     //for 문을 이용해서 
 	//for(i=0; i<exercise_list_size; i++) exercise_list에 있는 exercise_name과 calories_burned_per_minute을  출력함 
 	  
@@ -80,6 +82,6 @@ void inputExercise(HealthData* health_data) {
     scanf("%d", &duration);
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
-    
+    //health_data -> exercises[health_data -> exercise_count].calories_burned_per_minute..//12.18 
 
 }
