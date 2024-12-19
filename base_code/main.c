@@ -47,7 +47,7 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	inputExercise(&health_data); //exercise 선택  후 calories 소모를 healthdata에 추가 
+            	inputExercise(&health_data); //exercise 선택  후 calories 소모를 healthdata에 추가. &를 이용해서 참조함 
                 break;
                 
             case 2:

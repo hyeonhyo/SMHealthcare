@@ -26,7 +26,7 @@
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
-	int remaining_calories; // 남은 칼로리 정의 
+	int remaining_calories; // 남은 칼로리 변수 정의 
     FILE* file = fopen(HEALTHFILEPATH, "w");
     if (file == NULL) {
         printf("There is no file for health data.\n");
@@ -35,7 +35,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
-    for(i = 0; i < health_data->exercise_count; i++) { // 이떄까지 진행한 운동, 소모된 칼로리를 저장하기 위해  for 문을 이용함 
+    for(i = 0; i < health_data->exercise_count; i++) { //이떄까지 진행한 운동, 소모된 칼로리를 저장하기 위해  for 문을 이용함 
     //i 는 health_data를 참조하기 위한 변수 
 	// health_data에 -> health_data -> exercise_count 를 이용해서 구조체 변수를 참조하며  기록된 health_data의 총 개수를 나타내줌. 
         fprintf(file, "%s - %d kcal\n", health_data -> exercises[i].exercise_name, //%s는 운동 이름(문자열), %d는 소모 칼로리(정수)표시함 
@@ -80,8 +80,8 @@ void printHealthData(const HealthData* health_data) {
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
 	for ( i=0; i < health_data -> exercise_count; i++){
-		printf("Ecercise: %s, Calories burned: %d kcal\n", health_data -> exercises[i].exercise_name, health_data -> exercises[i].calories_burned_per_minute);
-		
+		printf("Exercise: %s, Calories burned: %d kcal\n", health_data -> exercises[i].exercise_name, health_data -> exercises[i].calories_burned_per_minute);
+		//Exercise 이름과 소모 칼로리 출력 
 	}
   
   
