@@ -36,7 +36,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     for(i = 0; i < health_data->exercise_count; i++) { //이떄까지 진행한 운동, 소모된 칼로리를 저장하기 위해  for 문을 이용함 
-    //i 는 health_data를 참조하기 위한 변수 
+
 	// health_data에 -> health_data -> exercise_count 를 이용해서 구조체 변수를 참조하며  기록된 health_data의 총 개수를 나타내줌. 
         fprintf(file, "%s - %d kcal\n", health_data -> exercises[i].exercise_name, //%s는 운동 이름(문자열), %d는 소모 칼로리(정수)표시함 
                 health_data -> exercises[i].calories_burned_per_minute); //현재 운동 이름, 해당 운동으로 소모된 칼로리 
@@ -46,14 +46,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     fprintf(file, "\n[Diets] \n");
     for (i=0; i< health_data->diet_count; i++){ //이때까지 먹은 식사 종류, 섭취한 칼로리를 저장하기  위해 for 문을 이용함 
     	fprintf(file, "%s - %d kcal\n", health_data -> diet[i].food_name, health_data -> diet[i].calories_intake);
-    	//음식 이름, 섭취 칼로리를 출력하며 %s는 음식이름(문자열), %d는 섭취 칼로리(정수)를 나타냄 
+    	//음식 이름, 섭취 칼로리를 health_data에서 출력함 
 	}
 	fprintf(file, "Total calories intake: %d kcal\n", health_data -> total_calories_intake); //모든 총 섭취 칼로리를 출력함 
 	//health_data -> total_calories_intake 로 구조체 변수에서 이때까지 먹은 칼로리 값을 출력함 
 
 
     // ToCode: to save the total remaining calrories
-    remaining_calories = health_data->total_calories_intake - BASAL_METABOLIC_RATE - health_data->total_calories_burned;
+    remaining_calories = health_data->total_calories_intake - BASAL_METABOLIC_RATE - health_data -> total_calories_burned;
     // 남은 칼로리(섭취 칼로리 - 기초 대사량- 소모된 칼로리 )
     fprintf(file, "\n[Total] \n");
     fprintf(file, "Basal metabolic rate - %d kcal\n", BASAL_METABOLIC_RATE);
@@ -81,7 +81,7 @@ void printHealthData(const HealthData* health_data) {
 	printf("=========================== History of Exercise =======================\n");
 	for ( i=0; i < health_data -> exercise_count; i++){
 		printf("Exercise: %s, Calories burned: %d kcal\n", health_data -> exercises[i].exercise_name, health_data -> exercises[i].calories_burned_per_minute);
-		//Exercise 이름과 소모 칼로리 출력 
+		//Exercise 이름과 소모 칼로리를 health_data에서 구초제 포인터 이용해서  출력 
 	}
   
   
@@ -108,13 +108,13 @@ void printHealthData(const HealthData* health_data) {
     
 	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
-     if (remaining_calories == 0) {
-        printf("You have consumed all your calories for today!"); // 남은 칼로리 =0인 경우 
+     if (remaining_calories == 0) { // 남은 칼로리 = 0 인 경우 
+        printf("You have consumed all your calories for today!"); 
     } else if (remaining_calories < 0) { //남은 칼로리<0인 경우 
         printf("[Warning] Too few calories!");
     } else if (health_data->total_calories_intake < DAILY_CALORIE_GOAL) {//섭취 칼로리가 일일 권장 칼로리보다 적은 경우 
         printf("Your total calorie intake for today has not reached your goal. Remember to eat more!\n");}
-      else if (health_data -> total_calories_intake > DAILY_CALORIE_GOAL){//섭취 칼로리가 권장 칼로리보다 많은 경우 
+      else if (health_data -> total_calories_intake > DAILY_CALORIE_GOAL){//섭취 칼로리가 일일 권장 칼로리보다 많은 경우 
       	printf("You have eaten more calories than planned today, but you have exercised too much!");
 	  }
 	  else if (health_data -> total_calories_intake >= DAILY_CALORIE_GOAL){//섭취칼로리가 일일 권장 칼로리에 도달한 경우 
